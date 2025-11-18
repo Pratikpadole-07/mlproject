@@ -1,1 +1,17 @@
-<h1>Welcome to the home page</h1>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="text-center fade-in mt-5">
+
+    <h1 class="fw-bold display-4">Student Exam Performance Predictor</h1>
+    <p class="lead mt-3">
+        Predict student math scores using Machine Learning with amazing accuracy.
+    </p>
+
+    <a href="/predictdata" class="btn btn-primary btn-lg mt-4">
+        Start Prediction 🚀
+    </a>
+
+</div>
+
+{% endblock %}

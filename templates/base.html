@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body class="light-mode">
+    <div class="bg-blob" id="blob1"></div>
+    <div class="bg-blob" id="blob2"></div>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg blur-navbar shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="/">🎓 ML Predictor</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <i class="ri-menu-line"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/predictdata">Predict</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+                    <!-- Dark/Light Toggle -->
+                    <li class="nav-item ms-3">
+                        <i class="ri-sun-line theme-icon" id="themeToggle"></i>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="container py-4 fade-in">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-light py-3 mt-5">
+        <span>© {{ year }} Student ML Predictor | Made with ❤️</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const toggle = document.getElementById("themeToggle");
+        const body = document.body;
+
+        toggle.onclick = () => {
+            body.classList.toggle("dark-mode");
+            body.classList.toggle("light-mode");
+            toggle.classList.toggle("ri-moon-line");
+            toggle.classList.toggle("ri-sun-line");
+        };
+    </script>
+
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+<script>
+    const form = document.querySelector("form");
+    const overlay = document.getElementById("loadingOverlay");
+
+    if(form){
+        form.onsubmit = () => {
+            overlay.style.display = "flex";
+        };
+    }
+</script>
+
+</body>
+</html>

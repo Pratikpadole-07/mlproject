@@ -6,6 +6,16 @@ __pycache__/
 # C extensions
 *.so
 
+
+# Ignore training garbage
+catboost_info/
+artifacts/*.csv
+artifacts/model.pkl
+artifacts/preprocessor.pkl
+*.log
+__pycache__/
+tempCodeRunnerFile.py
+
 # Distribution / packaging
 .Python
 build/
