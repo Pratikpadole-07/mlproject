@@ -1,8 +1,9 @@
+Flask==3.0.2
 pandas
 numpy
-seaborn
-matplotlib
 scikit-learn
-catboost
 xgboost
--e .
+catboost
+matplotlib
+seaborn
+gunicorn
